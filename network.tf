@@ -44,3 +44,41 @@ resource "aws_subnet" "eks-pubsubnet03" {
   }
 }
 
+resource "aws_internet_gateway" "eks-vpc-igw" {
+  vpc_id = aws_vpc.eks-vpc.id
+
+  tags = {
+    Name = "eks-vpc-igw"
+  }
+}
+
+
+resource "aws_route_table" "eks-vpc-pub-routetable" {
+  vpc_id = aws_vpc.eks-vpc.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.eks-vpc-igw.id
+  }
+
+
+  tags = {
+    Name = "eks-vpc-pub-routetable"
+  }
+}
+
+resource "aws_route_table_association" "pubsubnet01-rtassociation" {
+  subnet_id      = aws_subnet.eks-pubsubnet01.id
+  route_table_id = aws_route_table.eks-vpc-pub-routetable.id
+}
+
+resource "aws_route_table_association" "pubsubnet02-rtassociation" {
+  subnet_id      = aws_subnet.eks-pubsubnet02.id
+  route_table_id = aws_route_table.eks-vpc-pub-routetable.id
+}
+
+resource "aws_route_table_association" "pubsubnet03-rtassociation" {
+  subnet_id      = aws_subnet.eks-pubsubnet03.id
+  route_table_id = aws_route_table.eks-vpc-pub-routetable.id
+}
+
