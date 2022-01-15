@@ -3,6 +3,7 @@ resource "aws_eks_node_group" "eks-node-group" {
   node_group_name = "kalesha-eks-cluster-default-node-group"
   node_role_arn   = "arn:aws:iam::473745473587:role/myAmazonEKSNodeRole"
   subnet_ids      = [ aws_subnet.eks-pubsubnet01.id, aws_subnet.eks-pubsubnet02.id, aws_subnet.eks-pubsubnet03.id ] 
+  ec2_ssh_key = "eks-kp"
   scaling_config {
     desired_size = 1
     max_size     = 1
