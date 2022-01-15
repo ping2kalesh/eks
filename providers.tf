@@ -7,6 +7,7 @@ terraform {
   }
   backend "s3" {
     bucket = "kaalisbucket"
+    key    = "terraform-statefile"
     region = "us-east-1"
   }
 }
