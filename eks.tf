@@ -1,6 +1,6 @@
 resource "aws_eks_cluster" "kalesha-eks-cluster" {
   name     = "kalesha-eks-cluster"
-  role_arn = "arn:aws:iam::473745473587:role/aws-service-role/eks.amazonaws.com/AWSServiceRoleForAmazonEKS"
+  role_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
   version  = "1.18"
   vpc_config {
     subnet_ids = [aws_subnet.eks-pubsubnet01.id, aws_subnet.eks-pubsubnet02.id, aws_subnet.eks-pubsubnet03.id]
