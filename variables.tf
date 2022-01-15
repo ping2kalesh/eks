@@ -18,24 +18,24 @@ variable "availability-zones" {
   description = "The AWS AZ to deploy EKS"
 }
 
-variable "k8s-version" {
-  default     = "1.18"
-  type        = string
-  description = "Required K8s version"
-}
+#variable "k8s-version" {
+#  default     = "1.18"
+#  type        = string
+#  description = "Required K8s version"
+#}
 
-variable "kublet-extra-args" {
-  default     = ""
-  type        = string
-  description = "Additional arguments to supply to the node kubelet process"
-}
+#variable "kublet-extra-args" {
+#  default     = ""
+#  type        = string
+#  description = "Additional arguments to supply to the node kubelet process"
+#}
 
-variable "public-kublet-extra-args" {
-  default     = ""
-  type        = string
-  description = "Additional arguments to supply to the public node kubelet process"
+#variable "public-kublet-extra-args" {
+#  default     = ""
+#  type        = string
+#  description = "Additional arguments to supply to the public node kubelet process"
 
-}
+#}
 
 variable "vpc-subnet-cidr" {
   default     = "10.0.0.0/16"
@@ -61,42 +61,42 @@ variable "public-subnet-cidr" {
 #  description = "DB/Spare Subnet CIDR"
 #}
 
-variable "eks-cw-logging" {
-  default     = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
-  type        = list
-  description = "Enable EKS CWL for EKS components"
-}
+#variable "eks-cw-logging" {
+#  default     = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
+#  type        = list
+#  description = "Enable EKS CWL for EKS components"
+#}
 
-variable "node-instance-type" {
-  default     = "m4.large"
-  type        = string
-  description = "Worker Node EC2 instance type"
-}
+#variable "node-instance-type" {
+#  default     = "m4.large"
+#  type        = string
+#  description = "Worker Node EC2 instance type"
+#}
 
-variable "root-block-size" {
-  default     = "20"
-  type        = string
-  description = "Size of the root EBS block device"
+#variable "root-block-size" {
+#  default     = "20"
+#  type        = string
+#  description = "Size of the root EBS block device"
 
-}
+#}
 
-variable "desired-capacity" {
-  default     = 2
-  type        = string
-  description = "Autoscaling Desired node capacity"
-}
+#variable "desired-capacity" {
+#  default     = 2
+#  type        = string
+#  description = "Autoscaling Desired node capacity"
+#}
 
-variable "max-size" {
-  default     = 5
-  type        = string
-  description = "Autoscaling maximum node capacity"
-}
+#variable "max-size" {
+#  default     = 5
+#  type        = string
+#  description = "Autoscaling maximum node capacity"
+#}
 
-variable "min-size" {
-  default     = 1
-  type        = string
-  description = "Autoscaling Minimum node capacity"
-}
+#variable "min-size" {
+#  default     = 1
+#  type        = string
+#  description = "Autoscaling Minimum node capacity"
+#}
 
 #variable "ec2-key-public-key" {
 #  default     = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 email@example.com"
