@@ -9,3 +9,12 @@ resource "aws_vpc" "eks-vpc" {
     "kubernetes.io/cluster/kalesha-eks-cluster" = "shared"
   }
 }
+
+
+
+  tags = {
+    Name                                        = "${var.cluster-name}-vpc"
+    "kubernetes.io/cluster/${var.cluster-name}" = "shared"
+  }
+
+
