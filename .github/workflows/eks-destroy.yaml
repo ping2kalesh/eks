@@ -8,7 +8,7 @@ on:
 jobs:
   destroy_cluster:
 
-    runs-on: self-managed
+    runs-on: self-hosted
 
     steps:
       - name: Checkout
