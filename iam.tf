@@ -2,7 +2,7 @@
 
 # CLUSTER
 resource "aws_iam_role" "cluster" {
-  name = "${var.cluster-name}-eks-cluster-role"
+  name = "kalesha-eks-cluster-eks-cluster-role"
 
   assume_role_policy = <<POLICY
 {
@@ -32,7 +32,7 @@ resource "aws_iam_role_policy_attachment" "cluster-AmazonEKSServicePolicy" {
 
 # NODES
 resource "aws_iam_role" "node" {
-  name = "${var.cluster-name}-eks-node-role"
+  name = "kalesha-eks-cluster-eks-node-role"
 
   assume_role_policy = <<POLICY
 {
@@ -66,6 +66,6 @@ resource "aws_iam_role_policy_attachment" "node-AmazonEC2ContainerRegistryReadOn
 }
 
 resource "aws_iam_instance_profile" "node" {
-  name = "${var.cluster-name}-eks-node-instance-profile"
+  name = "kalesha-eks-cluster-eks-node-instance-profile"
   role = aws_iam_role.node.name
 }
