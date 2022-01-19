@@ -8,7 +8,7 @@ resource "aws_eks_cluster" "kalesha-eks-cluster" {
 
   depends_on = [
     aws_iam_role_policy_attachment.cluster-AmazonEKSClusterPolicy,
-    aws_ima_role_policy_attachment.cluster-AmazonEKSServicePolicy,
+    aws_iam_role_policy_attachment.cluster-AmazonEKSServicePolicy,
   ]
 
 }
