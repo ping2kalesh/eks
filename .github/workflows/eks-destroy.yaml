@@ -1,0 +1,23 @@
+name: EKS cluster destroy
+
+
+on:
+  workflow_dispatch:
+    branches: [main]
+  push: 
+    branches: [main]
+  pull_requests:
+    branches: [main]
+
+jobs:
+  destroy_cluster:
+
+    runs-on: self-managed
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: terraform destroy
+        run: terraform destroy -auto-approve
+
