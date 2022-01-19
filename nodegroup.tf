@@ -1,5 +1,5 @@
 resource "aws_eks_node_group" "eks-node-group" {
-  cluster_name    = "kalesha-eks-cluster"
+  cluster_name    = aws_eks_cluster.kalesha-eks-cluster
   node_group_name = "kalesha-eks-cluster-default-node-group"
   node_role_arn   = aws_iam_role.node.arn
   subnet_ids      = [aws_subnet.eks-pubsubnet01.id, aws_subnet.eks-pubsubnet02.id, aws_subnet.eks-pubsubnet03.id]
